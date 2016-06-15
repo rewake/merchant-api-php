@@ -2,37 +2,37 @@
 namespace TophatterMerchant\Model;
 
 class Account {
-	private $object;
+	private $account_hash;
 	
-	public function __construct($object) {
-		$this->object = $object;
+	public function __construct($account_hash) {
+		$this->account_hash = $account_hash;
 	}
 	
 	public function getAccessToken() {
-		return $this->object->access_token;
+		return $this->account_hash->access_token;
 	}
 	
 	public function getFirstName() {
-		return $this->object->first_name;
+		return $this->account_hash->first_name;
 	}
 	
 	public function getLastName() {
-		return $this->object->last_name;
+		return $this->account_hash->last_name;
 	}
 	
 	public function getStoreName() {
-		return $this->object->store_name;
+		return $this->account_hash->store_name;
 	}
 	
 	public function getEmail() {
-		return $this->object->email;
+		return $this->account_hash->email;
 	}
 	
 	public function getCountry() {
-		return $this->object->country;
+		return $this->account_hash->country;
 	}
 	
 	public function getTimeZone() {
-		return $this->object->time_zone;
+		return $this->account_hash->time_zone;
 	}
 }
