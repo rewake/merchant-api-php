@@ -5,7 +5,7 @@ use TophatterMerchant\Model\Account;
 use TophatterMerchant\Model\Schema;
 
 class AccountApi extends ResourceApi {
-	public static function schema() {
+	public static function getSchema() {
 		$response = parent::getResponse('GET', 'account/schema');
 		$schema = array();
 		foreach ($response as $schema_item) {
@@ -23,7 +23,7 @@ class AccountApi extends ResourceApi {
 		return new Account($response);
 	}
 	
-	public static function me() {
+	public static function getMe() {
 		$response = parent::getResponse('GET', 'account/me.json');
 		return new Account($response);
 	}
