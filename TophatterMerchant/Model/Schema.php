@@ -19,4 +19,12 @@ class Schema {
 	public function getReadonly() {
 		return $this->schema_hash->readonly;
 	}
+	
+	public function getName() {
+		return $this->schema_hash->name;
+	}
+	
+	public function getDescription() {
+		return $this->schema_hash->description;
+	}
 }
