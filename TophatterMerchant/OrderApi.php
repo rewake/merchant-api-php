@@ -16,12 +16,10 @@ class OrderApi extends ResourceApi {
 	
 	public static function getAll($filter = null, $page = 1, $per_page = 50) {
 		$params = array(
+				'filter' => $filter,
 				'page' => 1,
 				'per_page' => 50
 		);
-		if ($filter) {
-			$params['filter'] = $filter;
-		}
 		$response = parent::getResponse('GET', 'orders', $params);
 		$orders = array();
 		foreach ($response as $order) {

@@ -32,8 +32,10 @@ class ResourceApi {
 		);
 		if ($method === "GET") {
 			$url = $url . "?" . http_build_query($params);
-		} else {
+		} else if ($params['file'] || $params['data']) {
 			$options[CURLOPT_POSTFIELDS] = $params;
+		} else {
+			$options[CURLOPT_POSTFIELDS] = http_build_query($params);
 		}
 		$options[CURLOPT_URL] = $url;
 		curl_setopt_array($curl, $options);
