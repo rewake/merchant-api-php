@@ -37,6 +37,9 @@ class ResourceApi {
 		} else {
 			$options[CURLOPT_POSTFIELDS] = http_build_query($params);
 		}
+		if ($method === "DELETE") {
+			$options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
+		}
 		$options[CURLOPT_URL] = $url;
 		curl_setopt_array($curl, $options);
 		$result = curl_exec($curl);
