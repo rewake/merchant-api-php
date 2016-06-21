@@ -37,7 +37,11 @@ class Product {
 	}
 	
 	public function getProductVariations() {
-		return $this->product_hash->product_variations;
+		$variations = array();
+		foreach ($this->product_hash->product_variations as $variation) {
+			$variations[] = new Variation($variation);
+		}
+		return $variations;
 	}
 	
 	public function getMinimumBidAmount() {
