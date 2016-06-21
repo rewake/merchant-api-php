@@ -27,4 +27,8 @@ class Variation {
 	public function getQuantity() {
 		return $this->variation_hash->quantity;
 	}
+	
+	public function getId() {
+		return $this->getCreatedAt() ? $this->getIdentifier() : null;
+	}
 }

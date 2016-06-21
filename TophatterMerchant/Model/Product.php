@@ -119,4 +119,45 @@ class Product {
 	public function getSlug() {
 		return $this->product_hash->slug;
 	}
+	
+	public function getId() {
+		return $this->getCreatedAt() ? $this->getIdentifier() : null;
+	}
+	
+	public function getImages($size = 'square') {
+		$images = array();
+		if ($this->getId()) {
+			foreach ($this->getAllImages() as $image) {
+				$images[] = $image->$size;
+			}
+		} else {
+			$images[] = $this->getPrimaryImage();
+			$extra_images = explode('|', $this->getExtraImages());
+			foreach ($extra_images as $image) {
+				$images[] = $image;
+			}
+		}
+		return $images;
+	}
+	
+	public function copy() {
+		$product_hash_copy = $this->product_hash;
+		unset($product_hash_copy->identifier);
+		unset($product_hash_copy->primary_image);
+		unset($product_hash_copy->extra_images);
+		unset($product_hash_copy->all_images);
+		unset($product_hash_copy->created_at);
+		unset($product_hash_copy->updated_at);
+		unset($product_hash_copy->disabled_at);
+		unset($product_hash_copy->deleted_at);
+		foreach ($product_hash_copy->product_variations as $product_variation) {
+			unset($product_variation->identifier);
+			unset($product_variation->created_at);
+		}
+		return new Product($product_hash_copy);
+	}
+	
+	public function toParam() {
+		return $this->getSlug() ? $this->getSlug() : $this->getIdentifier();
+	}
 }

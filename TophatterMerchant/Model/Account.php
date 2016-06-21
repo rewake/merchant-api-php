@@ -35,4 +35,8 @@ class Account {
 	public function getTimeZone() {
 		return $this->account_hash->time_zone;
 	}
+	
+	public function getId() {
+		return $this->account_hash->email;
+	}
 }

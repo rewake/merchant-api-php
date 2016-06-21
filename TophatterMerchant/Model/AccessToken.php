@@ -8,6 +8,10 @@ class AccessToken {
 		$this->access_token_hash = $access_token_hash;
 	}
 	
+	public function getId() {
+		return $this->access_token_hash->id;
+	}
+	
 	public function getAccessToken() {
 		return $this->access_token_hash->access_token;
 	}
