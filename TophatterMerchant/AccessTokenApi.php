@@ -4,7 +4,7 @@ namespace TophatterMerchant;
 use TophatterMerchant\Model\Schema;
 use TophatterMerchant\Model\AccessToken;
 
-class AccessTokenApi extends ResourceApi {
+class AccessTokenApi extends TophatterMerchantApi {
 	public static function getSchema() {
 		$response = parent::getResponse('GET', 'api_keys/schema');
 		$schema = array();

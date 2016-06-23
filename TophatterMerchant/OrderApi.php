@@ -4,7 +4,7 @@ namespace TophatterMerchant;
 use TophatterMerchant\Model\Order;
 use TophatterMerchant\Model\Schema;
 
-class OrderApi extends ResourceApi {
+class OrderApi extends TophatterMerchantApi {
 	public static function getSchema() {
 		$response = parent::getResponse('GET', 'orders/schema');
 		$schema = array();

@@ -8,10 +8,10 @@ use TophatterMerchant\Exception\ServerErrorException;
 use TophatterMerchant\Exception\UnauthorizedException;
 use TophatterMerchant\Exception\ConnectionException;
 
-class ResourceApi {
+class TophatterMerchantApi {
 	
-// 	const BASE_URL = "https://tophatter.com/merchant_api/v1/";
-	const BASE_URL = "http://localhost/merchant_api/v1/";
+	const BASE_URL = "https://tophatter.com/merchant_api/v1/";
+// 	const BASE_URL = "http://localhost/merchant_api/v1/";
 	
 	private static $access_token;
 	

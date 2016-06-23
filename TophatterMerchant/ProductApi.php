@@ -5,7 +5,7 @@ use TophatterMerchant\Model\Product;
 use TophatterMerchant\Model\PaginatedProducts;
 use TophatterMerchant\Model\Schema;
 
-class ProductApi extends ResourceApi {
+class ProductApi extends TophatterMerchantApi {
 	public static function getSchema() {
 		$response = parent::getResponse('GET', 'products/schema');
 		$schema = array();

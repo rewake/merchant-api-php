@@ -4,7 +4,7 @@ namespace TophatterMerchant;
 use TophatterMerchant\Model\Schema;
 use TophatterMerchant\Model\Variation;
 
-class VariationApi extends ResourceApi {
+class VariationApi extends TophatterMerchantApi {
 	public static function getSchema() {
 		$response = parent::getResponse('GET', 'variations/schema');
 		$schema = array();

@@ -1,10 +1,9 @@
 <?php
 namespace TophatterMerchant;
 
-use TophatterMerchant\ResourceApi;
 use TophatterMerchant\Model\Metadata;
 
-class MetadataApi extends ResourceApi {
+class MetadataApi extends TophatterMerchantApi {
 	public static function getAll() {
 		$response = parent::getResponse('GET', 'metadata');
 		return new Metadata($response);
