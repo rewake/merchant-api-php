@@ -24,28 +24,28 @@ class Product {
 		return $this->product_hash->description;
 	}
 	
-	public function getProductCondition() {
-		return $this->product_hash->product_condition;
+	public function getCondition() {
+		return $this->product_hash->condition;
 	}
 	
-	public function getProductBrand() {
-		return $this->product_hash->product_brand;
+	public function getBrand() {
+		return $this->product_hash->brand;
 	}
 	
-	public function getProductMaterial() {
-		return $this->product_hash->product_material;
+	public function getMaterial() {
+		return $this->product_hash->material;
 	}
 	
-	public function getProductVariations() {
+	public function getVariations() {
 		$variations = array();
-		foreach ($this->product_hash->product_variations as $variation) {
+		foreach ($this->product_hash->variations as $variation) {
 			$variations[] = new Variation($variation);
 		}
 		return $variations;
 	}
 	
-	public function getMinimumBidAmount() {
-		return $this->product_hash->minimum_bid_amount;
+	public function getStartingBid() {
+		return $this->product_hash->starting_bid;
 	}
 	
 	public function getBuyNowPrice() {
@@ -60,8 +60,8 @@ class Product {
 		return $this->product_hash->cost_basis;
 	}
 	
-	public function getShipsFrom() {
-		return $this->product_hash->ships_from;
+	public function getShippingOrigin() {
+		return $this->product_hash->shipping_origin;
 	}
 	
 	public function getShippingPrice() {
@@ -72,12 +72,12 @@ class Product {
 		return $this->product_hash->expedited_shipping_price;
 	}
 	
-	public function getEstimatedDaysToShip() {
-		return $this->product_hash->estimated_days_to_ship;
+	public function getDaysToFulfill() {
+		return $this->product_hash->days_to_fulfill;
 	}
 	
-	public function getEstimatedDaysToDeliver() {
-		return $this->product_hash->estimated_days_to_deliver;
+	public function getDaysToDeliver() {
+		return $this->product_hash->days_to_deliver;
 	}
 	
 	public function getExpeditedDaysToDeliver() {
@@ -150,7 +150,7 @@ class Product {
 		unset($product_hash_copy->updated_at);
 		unset($product_hash_copy->disabled_at);
 		unset($product_hash_copy->deleted_at);
-		foreach ($product_hash_copy->product_variations as $product_variation) {
+		foreach ($product_hash_copy->variations as $product_variation) {
 			unset($product_variation->identifier);
 			unset($product_variation->created_at);
 		}
