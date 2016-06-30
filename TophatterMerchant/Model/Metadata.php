@@ -47,4 +47,8 @@ class Metadata {
 	public function getCarriers() {
 		return $this->metadata_hash->carriers;
 	}
+	
+	public function getBrands() {
+		return $this->metadata_hash->brands;
+	}
 }

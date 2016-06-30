@@ -8,8 +8,8 @@ class Order {
 		$this->order_hash = $order_hash;
 	}
 	
-	public function getId() {
-		return $this->order_hash->id;
+	public function getOrderId() {
+		return $this->order_hash->order_id;
 	}
 	
 	public function getProductName() {
@@ -58,5 +58,13 @@ class Order {
 	
 	public function getTrackingNumber() {
 		return $this->order_hash->tracking_number;
+	}
+	
+	public function getRefundAmount() {
+		return $this->order_hash->refund_amount;
+	}
+	
+	public function getAvailableRefunds() {
+		return $this->order_hash->available_refunds;
 	}
 }

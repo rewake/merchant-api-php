@@ -29,24 +29,36 @@ class OrderApi extends TophatterMerchantApi {
 	}
 	
 	public static function retrieve($id) {
-		$url = 'orders/' . $id . '/retrieve';
-		$response = parent::getResponse('GET', $url);
+		$params['order_id'] = $id;
+		$response = parent::getResponse('GET', 'orders/retrieve', $params);
 		return new Order($response);
 	}
 	
 	public static function fulfill($id, $carrier, $tracking_number) {
-		$url = 'orders/' . $id . '/fulfill';
 		$params = array(
+				'order_id' => $id,
 				'carrier' => $carrier,
 				'tracking_number' => $tracking_number
 		);
-		$response = parent::getResponse('POST', $url, $params);
+		$response = parent::getResponse('POST', 'orders/fulfill', $params);
 		return new Order($response);
 	}
 	
 	public static function unfulfill($id) {
 		$url = 'orders/' . $id . '/fulfill';
 		$response = parent::getResponse('POST', $url);
+		return new Order($response);
+	}
+	
+	public static function refund($id, $type, $reason, $explanation = null, $fees = array()) {
+		$params = array(
+				'order_id' => $id,
+				'type' => $type,
+				'reason' => $reason,
+				'explanation' => $explanation,
+				'fees' => $fees
+		);
+		$response = parent::getResponse('POST', 'orders/refund', $params);
 		return new Order($response);
 	}
 }

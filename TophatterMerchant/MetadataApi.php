@@ -53,4 +53,9 @@ class MetadataApi extends TophatterMerchantApi {
 		$response = parent::getResponse('GET', 'metadata/carriers');
 		return $response;
 	}
+	
+	public static function getBrands() {
+		$response = parent::getResponse('GET', 'metadata/brands');
+		return $response;
+	}
 }
