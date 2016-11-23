@@ -1,6 +1,4 @@
 <?php
 namespace TophatterMerchant\Exception;
 
-class ConnectionException extends \RuntimeException {
-	
-}
+class ConnectionException extends \RuntimeException {}

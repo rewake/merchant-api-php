@@ -1,6 +1,4 @@
 <?php
 namespace TophatterMerchant\Exception;
 
-class BadRequestException extends \RuntimeException {
-
-}
+class BadRequestException extends \RuntimeException {}
