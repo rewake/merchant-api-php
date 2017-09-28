@@ -15,11 +15,7 @@ class OrderApi extends TophatterMerchantApi {
   }
 
   public static function getAll($filter = null, $page = 1, $per_page = 50) {
-    $params = array(
-        'filter' => $filter,
-        'page' => 1,
-        'per_page' => 50
-    );
+    $params = array('filter' => $filter, 'page' => $page, 'per_page' => $per_page);
     $response = parent::getResponse('GET', 'orders', $params);
     $orders = array();
     foreach ($response as $order) {
@@ -47,13 +43,7 @@ class OrderApi extends TophatterMerchantApi {
   }
 
   public static function refund($id, $type, $reason, $explanation = null, $fees = array()) {
-    $params = array(
-      'order_id' => $id,
-      'type' => $type,
-      'reason' => $reason,
-      'explanation' => $explanation,
-      'fees' => $fees
-    );
+    $params = array('order_id' => $id, 'type' => $type, 'reason' => $reason, 'explanation' => $explanation, 'fees' => $fees);
     $response = parent::getResponse('POST', 'orders/refund', $params);
     return new Order($response);
   }
