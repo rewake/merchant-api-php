@@ -2,7 +2,7 @@
 namespace TophatterMerchant\Model;
 
 class Order {
-  private $order_hash;
+  public $order_hash;
 
   public function __construct($order_hash) {
     $this->order_hash = $order_hash;
